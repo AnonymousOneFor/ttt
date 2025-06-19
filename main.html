@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motivational Gift Card</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .book {
+      width: 120px;
+      height: 160px;
+      background: #fff8dc;
+      border: 2px solid #e3c77c;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #333;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .book:hover {
+      transform: scale(1.1);
+    }
+
+    .message-container {
+      
+      background-image: url('paper-background.png');
+      background-color: rgba(255, 255, 255, 0.45);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 35px 30px; 
+      display: none;
+      animation: fadeIn 1.2s ease forwards;
+      position: relative;
+      max-width: 600px; 
+      margin: 0 auto;
+      color: #333; 
+      border-radius: 10px; 
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15), 
+                  0 0 15px 4px rgba(255, 255, 224, 0.55), 
+                  0 0 25px 8px rgba(255, 255, 255, 0.45); 
+    }
+
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2rem; 
+      margin-bottom: 1rem;
+      
+    }
+
+    p {
+      font-size: 1rem; 
+      max-width: 90%; 
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+       
+    }
+
+    button {
+      background-color: #ffcc00;
+      border: none;
+      padding: 0.6rem 1.2rem; 
+      font-size: 0.9rem; 
+      color: #333;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffd633;
+      transform: scale(1.05);
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      animation: shooting 3s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes shooting {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-500px, 500px) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="book" onclick="openBook()">📖 Open Book</div>
+
+  <div class="message-container" id="messageContainer">
+    <div class="message">
+      <h1>Hello, Mai 👋</h1>
+      <p>
+        Life is a journey filled with moments of joy, sorrow, challenges, and triumphs. Sometimes, it may feel like the world is too heavy to carry or that you’re walking this path alone. But please remember this: every sunrise brings a new chance, every breath a new beginning.
+        <br><br>
+        You are doing better than you think, and the strength you need is already within you. The fact that you're still standing even when it's tough is a victory in itself. It's okay to rest, to cry, to feel unsure. But don’t ever forget: you are worthy, you are capable, and your presence matters more than you know.
+        <br><br>
+        I’m grateful to cross paths with you as a new friend. Let’s keep going, one step at a time, hand in hand through the unknown.
+        <br><br>
+        From Neev
+      </p>
+      <button onclick="alert('Let’s be a nice friends, this is gonna be awesome! 🌟')">Click me!</button>
+    </div>
+  </div>
+
+  <div class="stars" id="stars"></div>
+
+  <script>
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 60; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.animationDelay = Math.random() * 5 + "s";
+      starsContainer.appendChild(star);
+    }
+
+    function openBook() {
+      document.querySelector('.book').style.display = 'none';
+      document.getElementById('messageContainer').style.display = 'block'; // Targetkan container
+    }
+  </script>
+</body>
+</html>
